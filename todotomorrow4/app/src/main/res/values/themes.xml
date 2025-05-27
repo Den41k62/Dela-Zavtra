@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.TodoTomorrow" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.TodoTomorrow" parent="Base.Theme.TodoTomorrow" />
+
+    <style name="Theme.TodoTomorrow.Light" parent="Theme.Material3.Light">
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.TodoTomorrow.Dark" parent="Theme.Material3.Dark">
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

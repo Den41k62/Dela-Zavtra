@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Дела на завтра</string>
+
+    <!-- Common -->
+    <string name="error_title_required">Введите название задачи</string>
+    <string name="task_saved">Задача сохранена</string>
+    <string name="task_save_error">Ошибка сохранения задачи</string>
+    <string name="task_deleted">Задача удалена</string>
+    <string name="task_delete_error">Ошибка удаления задачи</string>
+    <string name="task_reminder_message">Не забудьте выполнить задачу!</string>
+
+    <!-- Priority -->
+    <string-array name="priority_levels">
+        <item>Низкий</item>
+        <item>Средний</item>
+        <item>Высокий</item>
+    </string-array>
+
+    <!-- Notification -->
+    <string name="channel_name">Напоминания о задачах</string>
+    <string name="channel_description">Уведомления о предстоящих задачах</string>
+
+    <!-- Menu items -->
+    <string name="action_save">Сохранить</string>
+    <string name="action_edit">Редактировать</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_settings">Настройки</string>
+</resources>

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Дела на Завтра</string>
+    <string name="add_task_hint">Введите задачу</string>
+    <string name="add">Добавить</string>
+    <string name="sort">Сортировать</string>
+    <string name="sort_by_date">По дате</string>
+    <string name="sort_by_priority">По важности</string>
+    <string name="no_date">Без срока</string>
+
+    <string-array name="categories_array">
+        <item>Все</item>
+        <item>Работа</item>
+        <item>Дом</item>
+        <item>Покупки</item>
+        <item>Другое</item>
+    </string-array>
+
+    <string-array name="days_of_week">
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+        <item>Воскресенье</item>
+    </string-array>
+</resources>

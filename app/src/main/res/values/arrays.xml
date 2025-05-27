@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categories_array">
+        <item>Работа</item>
+        <item>Автомобиль</item>
+        <item>Дом</item>
+        <item>Учеба</item>
+        <item>Здоровье</item>
+        <item>Финансы</item>
+        <item>Хобби</item>
+        <item>Другое</item>
+    </string-array>
+
+    <string-array name="priorities_array">
+        <item>Низкий</item>
+        <item>Средний</item>
+        <item>Высокий</item>
+    </string-array>
+</resources>

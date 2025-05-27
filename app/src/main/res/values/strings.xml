@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Дела на завтра</string>
+
+    <string name="title_hint">Название задачи</string>
+    <string name="description_hint">Описание</string>
+    <string name="due_date">Дата выполнения</string>
+    <string name="category">Категория</string>
+    <string name="priority">Приоритет</string>
+    <string name="completed">Выполнено</string>
+    <string name="save">Сохранить</string>
+    <string name="choose_date">Выбрать дату</string>
+    <string name="action_settings">Настройки</string>
+    <string name="task_saved">Задача сохранена</string>
+    <string name="task_updated">Задача обновлена</string>
+    <string name="error_saving">Ошибка при сохранении задачи</string>
+    <string name="error_updating">Ошибка при обновлении задачи</string>
+    <string name="enter_title">Введите название задачи</string>
+    <string name="previous_day">Previous day</string>
+    <string name="next_day">Next day</string>
+</resources>
