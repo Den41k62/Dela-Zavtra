@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">Дела на Завтра</string>
-    <string name="add_task_hint">Введите задачу</string>
-    <string name="add">Добавить</string>
-</resources>
