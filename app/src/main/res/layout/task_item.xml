@@ -74,6 +74,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceCaption" />
+            <ImageView
+                android:id="@+id/camera_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_camera"
+                android:visibility="gone"
+                android:contentDescription="@string/camera_icon" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
