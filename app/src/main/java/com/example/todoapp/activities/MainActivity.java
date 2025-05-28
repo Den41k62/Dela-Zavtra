@@ -15,6 +15,7 @@ import android.widget.ImageButton;  // Добавьте эту строку
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.todoapp.R;
 import com.example.todoapp.adapters.TaskAdapter;
@@ -145,7 +146,13 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.OnTas
             task.setCategory(cursor.getString(cursor.getColumnIndexOrThrow(TaskContract.TaskEntry.COLUMN_CATEGORY)));
             task.setPriority(cursor.getInt(cursor.getColumnIndexOrThrow(TaskContract.TaskEntry.COLUMN_PRIORITY)));
 
+            String imagePath = cursor.getString(cursor.getColumnIndexOrThrow(TaskContract.TaskEntry.COLUMN_IMAGE_PATH));
+            task.setImagePath(imagePath);
+
             taskList.add(task);
+
+            Log.d("MainActivity", "Task loaded: " + task.getTitle() +
+                    ", has photo: " + task.hasPhoto());
         }
         cursor.close();
         adapter.notifyDataSetChanged();
