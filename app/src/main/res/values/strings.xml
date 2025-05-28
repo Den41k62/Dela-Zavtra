@@ -17,4 +17,6 @@
     <string name="enter_title">Введите название задачи</string>
     <string name="previous_day">Previous day</string>
     <string name="next_day">Next day</string>
+    <string name="camera_icon">Иконка камеры</string>
+    <string name="move_to_tomorrow">Перенести на завтра</string>
 </resources>
