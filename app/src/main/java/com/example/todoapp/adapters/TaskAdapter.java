@@ -1,10 +1,13 @@
 package com.example.todoapp.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,26 +39,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         this.listener = listener;
     }
 
-    @NonNull
-    @Override
-    public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.task_item, parent, false);
-        return new TaskViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
-        Task task = taskList.get(position);
-        holder.bind(task); // Передаем задачу в метод bind ViewHolder'а
-    }
-
-    @Override
-    public int getItemCount() {
-        return taskList.size();
-    }
-
-    // Метод для получения цвета приоритета
     private int getPriorityColor(int priority) {
         switch (priority) {
             case 1: // Низкий
@@ -69,22 +52,45 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         }
     }
 
+    @NonNull
+    @Override
+    public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.task_item, parent, false);
+        return new TaskViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
+        Task task = taskList.get(position);
+        holder.bind(task);
+    }
+
+    @Override
+    public int getItemCount() {
+        return taskList.size();
+    }
+
     public class TaskViewHolder extends RecyclerView.ViewHolder {
         private TextView titleTextView;
+        private TextView descriptionTextView;
         private TextView dueTimeTextView;
         private TextView categoryTextView;
         private TextView priorityTextView;
         private CheckBox completedCheckBox;
-        private View moveToNextDayButton;
+        private ImageButton moveToNextDayButton;
+        private ImageView cameraIcon;
 
         public TaskViewHolder(@NonNull View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.task_title);
+            descriptionTextView = itemView.findViewById(R.id.task_description);
             dueTimeTextView = itemView.findViewById(R.id.task_due_time);
             categoryTextView = itemView.findViewById(R.id.task_category);
             priorityTextView = itemView.findViewById(R.id.task_priority);
             completedCheckBox = itemView.findViewById(R.id.task_completed);
             moveToNextDayButton = itemView.findViewById(R.id.move_to_next_day);
+            cameraIcon = itemView.findViewById(R.id.camera_icon);
 
             itemView.setOnClickListener(v -> {
                 int position = getAdapterPosition();
@@ -119,8 +125,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
         public void bind(Task task) {
             titleTextView.setText(task.getTitle());
+            descriptionTextView.setText(task.getDescription());
 
-            // Форматирование времени, если dueDate не null
             if (task.getDueDate() != null) {
                 SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
                 dueTimeTextView.setText(timeFormat.format(task.getDueDate()));
@@ -128,29 +134,26 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
             categoryTextView.setText(task.getCategory());
 
-            // Установка текста и цвета приоритета
             String priorityText;
-            int priorityColor;
             switch (task.getPriority()) {
-                case 1: // Низкий
-                    priorityText = "Низкий";
-                    break;
-                case 2: // Средний
-                    priorityText = "Средний";
-                    break;
-                case 3: // Высокий
-                    priorityText = "Высокий";
-                    break;
-                default:
-                    priorityText = "Средний";
-                    break;
+                case 1: priorityText = "Низкий"; break;
+                case 2: priorityText = "Средний"; break;
+                case 3: priorityText = "Высокий"; break;
+                default: priorityText = "Средний"; break;
             }
             priorityTextView.setText(priorityText);
 
-            // Установка цвета фона элемента
-            itemView.setBackgroundColor(getPriorityColor(task.getPriority()));
+            // Исправленный вызов метода getPriorityColor
+            itemView.setBackgroundColor(TaskAdapter.this.getPriorityColor(task.getPriority()));
 
             completedCheckBox.setChecked(task.isCompleted());
+
+            if (task.hasPhoto()) {
+                cameraIcon.setVisibility(View.VISIBLE);
+                Log.d("TaskAdapter", "Showing camera icon for task: " + task.getTitle());
+            } else {
+                cameraIcon.setVisibility(View.GONE);
+            }
         }
     }
 }
